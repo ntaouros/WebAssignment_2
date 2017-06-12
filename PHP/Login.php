@@ -18,6 +18,8 @@ $name = $_POST['username']; $pass = $_POST['password'];
 	}else
 	{
 		echo 'logggggged';
+		header("Location: http://localhost:81/WebAssignment_2/PHP/Movies.php" );
+
 		/* if (strcmp($user['Username'],$name) == 0) {
 		$_SESSION["loggedin"] = $name;
 		header("Location: ". $_SERVER['HTTP_REFERER']);
