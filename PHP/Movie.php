@@ -7,13 +7,15 @@
 		var $genre = array();
 		var $image;
 		var $description;
-		public function __construct($id, $title, $releaseYear, array $genre, $image, $description) {
+		var $rating;
+		public function __construct($id, $title, $releaseYear, array $genre, $image, $description, $rating) {
 			$this->id = $id;	
 			$this->title = $title;
 			$this->releaseYear = $releaseYear;
 			$this->genre = $genre;
 			$this->image = $image;
 			$this->description = $description;
+			$this->rating = $rating;
 		}
 
 		//Getters
@@ -41,6 +43,10 @@
 		  return $this->description;
 		}
 
+	 	public function getRating() {
+		  return $this->rating;
+		}
+
 		//Setters
 		public function setId($id) {
 		  $this->id = $id;    
@@ -64,6 +70,10 @@
 
 		public function setDescription($description) {
 		  $this->description = $description;    
+		}
+
+		public function setRating($rating) {
+		  $this->rating = $rating;    
 		}
 	}
 		
