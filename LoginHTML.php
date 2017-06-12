@@ -15,12 +15,17 @@
 							<label for="pwd" style= "font-size: 25px;">Password:</label>
 							<input type="password" name = "password" class="form-control text-center" id="password" required>
 						</div>
+						<?php 	session_start();
+								if(isset($_SESSION['failed'])) echo 'Username or Password is incorect'; 
+								session_destroy();
+
+						?>
 						<button type="submit" name = "submit" id = "login"  style = "width: 100%;margin-top:5px;font-size:20px;" class="btn btn-primary">Log In</button>
 					
 				</div>	
 			</div>	
 		</form>		
-		
+		 
 	</body>
 
 
