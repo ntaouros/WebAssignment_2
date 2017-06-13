@@ -56,15 +56,21 @@
 
 		//Printing Movies
 		foreach($movies as $movie) {
+			$genreClass = '';
+			foreach($movie->getGenre() as $genre) {
+				$genreClass = $genreClass . $genre .' '; 
+				// echo $genre."<br>";
+			}
+			$genreInLower = strtolower($genreClass);
+			echo "<div class=\"$genreInLower\">"; 
 			echo  $movie->getTitle() ."<br> ";
 			echo  $movie->getReleaseYear() ."<br> ";
 			echo  $movie->getDescription() ."<br> ";
 			echo "<img src=\"".$movie->getImage()."\"  >";
+			echo "<br>";
+			echo $genreClass;
 
-
-			foreach($movie->getGenre() as $genre) {
-				echo $genre."<br>";
-			}
+			echo '</div>';
 			echo "<br>";
 
 		}
