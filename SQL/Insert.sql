@@ -25,7 +25,7 @@ Insert into Movie values
 	(Default,'Ted',2017,'https://images-na.ssl-images-amazon.com/images/M/MV5BMTQ1OTU0ODcxMV5BMl5BanBnXkFtZTcwOTMxNTUwOA@@._V1_UX182_CR0,0,182,268_AL_.jpg','Ενα αρκουδι που μιλαει πινει μπαφο ολη την ωρα και παιζει πλεηστεησο',null),
 	(Default,'Justice League',2017,'https://images-na.ssl-images-amazon.com/images/M/MV5BMjI2NjI2MDQ0NV5BMl5BanBnXkFtZTgwMTc1MjAwMjI@._V1_UX182_CR0,0,182,268_AL_.jpg','Μια ολοκαινουρια πρωτοποριακη ταινια γυρισμενη στον αριο παγο. Δικηγοροι χωρισμενοι σε ομιλους συμμετεχουν σε δικες και οποιος κερδιζει παιρνει ποντους. Ο καλυτερος θα παρει το πρωταθλημα',null),
 	(Default,'Life',2017,'https://images-na.ssl-images-amazon.com/images/M/MV5BMzAwMmQxNTctYjVmYi00MDdlLWEzMWUtOTE5NTRiNDhhNjI2L2ltYWdlXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_UX182_CR0,0,182,268_AL_.jpg','A team of scientists aboard the International Space Station discover a rapidly evolving life form, that caused extinction on Mars, and now threatens the crew and all life on Earth.',null),
-	(Default,'Murder on the Orient Express',2017,'https://images-na.ssl-images-amazon.com/images/M/MV5BMTQ1OTU0ODcxMV5BMl5BanBnXkFtZTcwOTMxNTUwOA@@._V1_UX182_CR0,0,182,268_AL_.jpg','Το γνωστο ησυχο δρομολογιο του orient express παυει να ειναι ησυχο. Φονοι ναρκωτικα πορνεια ολα στο πρωινο δρομολογιο Καρδιτσα-Πυργος. Ο μηχανοδηγος ανυμπορος να κανει το οτιδηποτε αφηνει το τιμονι και παει στο βαγονι να συμεμτασχει. Βασισμενη σε αληθινα γεγονοτα.',null);
+	(Default,'Murder on the Orient Express',2017,'https://images-na.ssl-images-amazon.com/images/M/MV5BMTAxNDkxODIyMDZeQTJeQWpwZ15BbWU4MDQ2Mjg4NDIy._V1_UX182_CR0,0,182,268_AL_.jpg','Το γνωστο ησυχο δρομολογιο του orient express παυει να ειναι ησυχο. Φονοι ναρκωτικα πορνεια ολα στο πρωινο δρομολογιο Καρδιτσα-Πυργος. Ο μηχανοδηγος ανυμπορος να κανει το οτιδηποτε αφηνει το τιμονι και παει στο βαγονι να συμεμτασχει. Βασισμενη σε αληθινα γεγονοτα.',null);
 
 
 Insert into Movie_Genre values
@@ -42,4 +42,8 @@ Insert into Movie_Genre values
     (4,5),
     (4,1), #amerimade
     (6,4),
-    (7,7);
+    (7,7),
+    (8,5),
+    (8,6);
+
+    
