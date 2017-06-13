@@ -1,5 +1,5 @@
 <?php
-$name = $_POST['username']; $pass = $_POST['password']; 
+	$name = $_POST['username']; $pass = $_POST['password']; 
 	session_start();
 	include 'DBconnect.php';
 	$stmt = $mysqli->prepare('SELECT * FROM Users WHERE username = ? AND pass = ?');
@@ -8,7 +8,6 @@ $name = $_POST['username']; $pass = $_POST['password'];
 		echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
 	}
 	
-
 	$result = $stmt->get_result();
 	if(($user = $result -> fetch_assoc()) == 0){
 		$failed=true;
@@ -19,11 +18,6 @@ $name = $_POST['username']; $pass = $_POST['password'];
 	{
 		echo 'logggggged';
 		header("Location: http://localhost:81/WebAssignment_2/PHP/Movies.php" );
-
-		/* if (strcmp($user['Username'],$name) == 0) {
-		$_SESSION["loggedin"] = $name;
-		header("Location: ". $_SERVER['HTTP_REFERER']);
- */
 	}
 	
 	

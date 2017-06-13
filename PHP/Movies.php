@@ -1,8 +1,10 @@
 <html>
-
+	<head>
+	 	<script type="text/javascript" src="http://localhost:81/WebAssignment_2/JS/MoviesScript.js"></script>
+	</head>
 	<body>
 	
-	HELO
+	
 	
 	
 	
@@ -14,9 +16,11 @@
 <?php
 	include 'DBconnect.php';
 	include 'Movie.php';
+
 	$movies=array();
 	$sql = "SELECT * FROM Movie";
 	$result = $mysqli->query($sql);
+	$genres_unique=array();
 	if ($result->num_rows > 0) {
 		while($row = $result->fetch_assoc()) { // looping through Movies
 			$movieID=$row["id"];
@@ -32,24 +36,36 @@
 			$result_choice = $mysqli->query($sql_genre);
 			while($row_choice = $result_choice->fetch_assoc()) { //Looping through Genres
 				array_push($genres,$row_choice["genre"]);
+				array_push($genres_unique,$row_choice["genre"]);
 			}
 			$movie=new Movie($movieID,$title,$releaseYear,$genres,$image,$description,$rating);
 			array_push($movies,$movie);
 		}
 
+		$genres_unique = array_unique($genres_unique);
 		
-		foreach($movies as $movie) {
+		//Printing Unique Genres
+		echo '<select id=\'genre\' onchange=\'groupBy(this.value)\'>';
+		echo '<option disabled selected value>Select Genre</option>';
+		foreach($genres_unique as $genre) {
+			echo "<option value='$genre'>$genre</option>";
 		
-		echo  $movie->getTitle() ."<br> ";
-		echo  $movie->getReleaseYear() ."<br> ";
-		echo  $movie->getDescription() ."<br> ";
-		echo "<img src=\"".$movie->getImage()."\"  >";
-
-
-		foreach($movie->getGenre() as $genre) {
-			echo $genre."<br>";
 		}
+		echo '</select>';
 		echo "<br>";
+
+		//Printing Movies
+		foreach($movies as $movie) {
+			echo  $movie->getTitle() ."<br> ";
+			echo  $movie->getReleaseYear() ."<br> ";
+			echo  $movie->getDescription() ."<br> ";
+			echo "<img src=\"".$movie->getImage()."\"  >";
+
+
+			foreach($movie->getGenre() as $genre) {
+				echo $genre."<br>";
+			}
+			echo "<br>";
 
 		}
 		
