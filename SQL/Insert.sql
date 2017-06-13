@@ -46,4 +46,7 @@ Insert into Movie_Genre values
     (8,5),
     (8,6);
 
+insert into User_Rating values
+	(1,1,4),
+    (1,2,5);
     

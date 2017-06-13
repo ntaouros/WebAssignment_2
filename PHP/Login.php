@@ -1,6 +1,8 @@
 <?php
 	$name = $_POST['username']; $pass = $_POST['password']; 
+	
 	session_start();
+	$_SESSION['user']=$name;
 	include 'DBconnect.php';
 	$stmt = $mysqli->prepare('SELECT * FROM Users WHERE username = ? AND pass = ?');
 	$stmt->bind_param('ss', $name, $pass);

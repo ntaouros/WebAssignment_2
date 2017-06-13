@@ -1,12 +1,13 @@
 CREATE SCHEMA IF NOT EXISTS `Movies` DEFAULT CHARACTER SET utf8 ;
 USE `Movies`;
+DROP TABLE IF EXISTS `User_Rating`;
+
 DROP TABLE IF EXISTS `Users`;
 DROP TABLE IF EXISTS `Movie_Genre`;
 
 
 DROP TABLE IF EXISTS `Movie`;
 DROP TABLE IF EXISTS `Genre`;
-
 
 CREATE TABLE Users (
 	id int auto_increment not null,
@@ -40,4 +41,14 @@ create table Movie_Genre(
     FOREIGN KEY (Genre_id) REFERENCES Genre(id),
     FOREIGN KEY (Movie_id) REFERENCES Movie(id)
 
+);
+
+
+create table User_Rating(
+	User_id int not null,
+	Movie_id int not null,
+	Rate int not null,
+    Primary key ( User_id,Movie_id),
+    FOREIGN KEY (User_id) REFERENCES Users(id),
+    FOREIGN KEY (Movie_id) REFERENCES Movie(id)
 );
