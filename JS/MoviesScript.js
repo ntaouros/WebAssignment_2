@@ -24,17 +24,40 @@ function rate(rating, id) {
 };
 
 
-function addRate(movie,rate)
+function addRate(form)
 {
-	
-	if(ratedMovies.indexOf(movie)===-1)
-	{
-		//Insert new Rate
-		console.log('notrated');
-	}else{
-		//Change existing Rate
-				console.log('nadtrated');
+	var url = $(form).attr('action');
 
-	}
+                // fetch the data for the form
+    var data = $(form).serializeArray();
+
+    // setup the ajax request
+    $.ajax({
+        url: url,
+        data: data,
+        dataType: 'json',
+        success: function() {
+            if(rsp.success) {
+                alert('form has been posted successfully');
+            }
+        }
+    });
+
+    // return false so the form does not actually
+    // submit to the page
+    return false;
+	
+
+
+
+	// if(ratedMovies.indexOf(movie)===-1)
+	// {
+	// 	//Insert new Rate
+	// 	console.log('notrated');
+	// }else{
+	// 	//Change existing Rate
+	// 			console.log('nadtrated');
+
+	// }
 
 }
