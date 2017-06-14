@@ -14,3 +14,10 @@ function groupBy(genre) {
 	}
 	// divOne.style.display='none';
 } 
+
+function rate(rating, id) {
+	var result = document.querySelector('.starRating' + id +  ' #rating' + rating);
+	console.log(result.parentNode);
+	result.checked = true;
+	// document.getElementById("rating" + rating).checked = true;
+};

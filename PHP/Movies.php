@@ -79,28 +79,29 @@
 			echo "<br>";
 			echo $genreClass;
 			echo "<br>";
+			//2nisis skepsi: an uparxei vazeis tin timi tou xristi alliws sketo to rating widget
+			//Nik skepsi: dld theloume panta to rating widget + to rating tou xristi AN uparxei
+			echo '<span class="starRating'.$movie->getId().'">          	  ' ;
+			echo '	<form>													  ' ;
+			echo '  <input id="rating5" type="radio" name="rating" value="5"> ' ;
+			echo '  <label for="rating5">5</label>                            ' ;
+			echo '  <input id="rating4" type="radio" name="rating" value="4"> ' ;
+			echo '  <label for="rating4">4</label>                            ' ;
+			echo '  <input id="rating3" type="radio" name="rating" value="3"> ' ;
+			echo '  <label for="rating3">3</label>                            ' ;
+			echo '  <input id="rating2" type="radio" name="rating" value="2"> ' ;
+			echo '  <label for="rating2">2</label>                            ' ;
+			echo '  <input id="rating1" type="radio" name="rating" value="1"> ' ;
+			echo '  <label for="rating1">1</label>                            ' ;
+			echo '	</form>													  ' ;
+			echo '</span>													  ' ;
 			//Check if user has rated this movie
 			if (array_key_exists($movie->getId(),$movies_rate))
 			{
-				echo 'USER GIVEN RATE SUPPOSED TO BE HERE';
-				
-			}else                                                                 
-			{                                                                     
-				echo '<span class="starRating">                                   ' ;
-				echo '  <input id="rating5" type="radio" name="rating" value="5"> ' ;
-				echo '  <label for="rating5">5</label>                            ' ;
-				echo '  <input id="rating4" type="radio" name="rating" value="4"> ' ;
-				echo '  <label for="rating4">4</label>                            ' ;
-				echo '  <input id="rating3" type="radio" name="rating" value="3"> ' ;
-				echo '  <label for="rating3">3</label>                            ' ;
-				echo '  <input id="rating2" type="radio" name="rating" value="2"> ' ;
-				echo '  <label for="rating2">2</label>                            ' ;
-				echo '  <input id="rating1" type="radio" name="rating" value="1"> ' ;
-				echo '  <label for="rating1">1</label>                            ' ;
-				echo '</span>                                                     ' ;
-				
+				//set user ratings
+				echo '<script> rate('.$movies_rate[$movie->getId()].',\''. $movie->getId() .'\'); </script>';
 			}
-			
+					
 			
 			echo '</div>';
 			echo "<br>";
