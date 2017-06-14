@@ -2,6 +2,8 @@
 <html>
 	<head>
 	 	<script type="text/javascript" src="http://localhost:81/WebAssignment_2/JS/MoviesScript.js"></script>
+	 	 <link rel="stylesheet" type="text/css" href="http://localhost:81/WebAssignment_2/CSS/rating-widget.css"> 
+
 	</head>
 	<body>
 	
@@ -55,7 +57,7 @@
 	
 		//Printing Unique Genres
 		echo '<select id=\'genre\' onchange=\'groupBy(this.value)\'>';
-		echo '<option disabled selected value>Select Genre</option>';
+		echo '<option selected value>Select Genre</option>';
 		foreach($genres_unique as $genre) {
 			echo "<option value='$genre'>$genre</option>";
 		
@@ -81,20 +83,29 @@
 			echo "<br>";
 			//2nisis skepsi: an uparxei vazeis tin timi tou xristi alliws sketo to rating widget
 			//Nik skepsi: dld theloume panta to rating widget + to rating tou xristi AN uparxei
-			echo '<span class="starRating'.$movie->getId().'">          	  ' ;
 			echo '	<form>													  ' ;
-			echo '  <input id="rating5" type="radio" name="rating" value="5"> ' ;
-			echo '  <label for="rating5">5</label>                            ' ;
-			echo '  <input id="rating4" type="radio" name="rating" value="4"> ' ;
-			echo '  <label for="rating4">4</label>                            ' ;
-			echo '  <input id="rating3" type="radio" name="rating" value="3"> ' ;
-			echo '  <label for="rating3">3</label>                            ' ;
-			echo '  <input id="rating2" type="radio" name="rating" value="2"> ' ;
-			echo '  <label for="rating2">2</label>                            ' ;
-			echo '  <input id="rating1" type="radio" name="rating" value="1"> ' ;
+			echo '<span class="starRating starRating'.$movie->getId().'">          	  ' ;
+			echo '  <input id="rating5" type="radio"  name="rating" value="5"> ' ;
+			echo '  <label for="rating5">5</label>                             ' ;
+			echo '  <input id="rating4" type="radio"name="rating" value="4"> ' ;
+			echo '  <label for="rating4">4</label>                             ' ;
+			echo '  <input id="rating3" type="radio"  name="rating" value="3"> ' ;
+			echo '  <label for="rating3">3</label>                             ' ;
+			echo '  <input id="rating2" type="radio"  name="rating" value="2"> ' ;
+			echo '  <label for="rating2">2</label>                             ' ;
+			echo '  <input id="rating1" type="radio"  name="rating" value="1"> ' ;
 			echo '  <label for="rating1">1</label>                            ' ;
-			echo '	</form>													  ' ;
 			echo '</span>													  ' ;
+			echo '	</form>		 ' ;
+			/*	
+				onchange=\'addRate('.$movie->getId().',this.value)\'
+ onchange=\'addRate('.$movie->getId().',this.value)\' 
+onchange=\'addRate('.$movie->getId().',this.value)\'
+onchange=\'addRate('.$movie->getId().',this.value)\'
+onchange=\'addRate('.$movie->getId().',this.value)\'
+
+
+			*/											 
 			//Check if user has rated this movie
 			if (array_key_exists($movie->getId(),$movies_rate))
 			{
