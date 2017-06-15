@@ -3,6 +3,7 @@
 	<head>
 	 	<script type="text/javascript" src="http://localhost:81/WebAssignment_2/JS/MoviesScript.js"></script>
 	 <!-- 	 <link rel="stylesheet" type="text/css" href="http://localhost:81/WebAssignment_2/CSS/rating-widget.css">  -->
+	 	<link rel="stylesheet" type="text/css" href="http://localhost:81/WebAssignment_2/CSS/Movies.css"> 
 
 	</head>
 	<body>
@@ -74,10 +75,16 @@
 			}
 			$genreInLower = strtolower($genreClass);
 			echo "<div class=\"$genreInLower\">"; 
+			
 			echo  $movie->getTitle() ."<br> ";
+			
+
 			echo  $movie->getReleaseYear() ."<br> ";
-			echo  $movie->getDescription() ."<br> ";
+			
 			echo "<img src=\"".$movie->getImage()."\"  >";
+			echo "<br>";
+
+			echo  $movie->getDescription() ."<br> ";
 			echo "<br>";
 			echo $genreClass;
 			echo "<br>";
@@ -119,8 +126,8 @@ onchange=\'addRate('.$movie->getId().',this.value)\'
 					
 			
 			echo '</div>';
-			echo "<br>";
-			echo'------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------';
+			// echo "<br>";
+			// echo'------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------';
 
 		}
 		

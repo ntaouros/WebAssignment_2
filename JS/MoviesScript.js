@@ -43,21 +43,9 @@ function addRate(form)
         }
     });
 
-    // return false so the form does not actually
-    // submit to the page
+   
     return false;
 	
 
-
-
-	// if(ratedMovies.indexOf(movie)===-1)
-	// {
-	// 	//Insert new Rate
-	// 	console.log('notrated');
-	// }else{
-	// 	//Change existing Rate
-	// 			console.log('nadtrated');
-
-	// }
 
 }

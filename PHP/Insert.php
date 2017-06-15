@@ -24,6 +24,7 @@
 		}
 
 
+
 	// $sql->bind_param(':userId',(int)$userIdd);
  //   	$sql->bind_param(':movieId',intval(post('movieId')));
  //   	$sql->bind_param(':rate',post('rating'));

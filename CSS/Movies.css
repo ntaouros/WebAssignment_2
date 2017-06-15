@@ -1,0 +1,21 @@
+body
+{
+	
+   
+   text-align: center;
+
+}
+div {
+	display:inline;
+	float: left;
+	height: 410px;
+    width: 190px;
+    margin:80px;
+    text-align: left;
+
+}
+
+input[type=radio]:hover
+{
+	cursor: pointer;
+}
