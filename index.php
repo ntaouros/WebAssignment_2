@@ -83,21 +83,22 @@
 			echo "<br>";
 			//2nisis skepsi: an uparxei vazeis tin timi tou xristi alliws sketo to rating widget
 			//Nik skepsi: dld theloume panta to rating widget + to rating tou xristi AN uparxei
-			echo '	<form method="post" action="http://localhost:81/WebAssignment_2/PHP/Insert.php" onSubmit="return ajaxSubmit(this);"> ' ;
+			echo '	<form method="post" > ' ;
 			echo '<span class="starRating starRating'.$movie->getId().'">          	  ' ;
-			
-			echo '  <input id="rating0" type="radio"  name="rating" value="0"> ' ;
-			echo '  <label for="rating1">0</label>     ';
 
-			echo '  <input id="rating1" type="radio"  name="rating" value="1"> ' ;
+			if (array_key_exists($movie->getId(),$movies_rate)){
+				echo 'Rating '. round($movies_rate[$movie->getId()], 2, PHP_ROUND_HALF_UP) .'<br>'; 
+			}
+
+			echo '  <input id="rating1" type="radio" style="pointer-events: none;" name="rating" value="1"> ' ;
 			echo '  <label for="rating1">1</label>                             ' ;
-			echo '  <input id="rating2" type="radio"  name="rating" value="2"> ' ;
+			echo '  <input id="rating2" type="radio" style="pointer-events: none; name="rating" value="2"> ' ;
 			echo '  <label for="rating2">2</label>                             ' ;
-			echo '  <input id="rating3" type="radio"  name="rating" value="3"> ' ;
+			echo '  <input id="rating3" type="radio"style="pointer-events: none;  name="rating" value="3"> ' ;
 			echo '  <label for="rating3">3</label>                             ' ;
-			echo '  <input id="rating4" type="radio"  name="rating" value="4"> ' ;
+			echo '  <input id="rating4" type="radio"style="pointer-events: none;  name="rating" value="4"> ' ;
 			echo '  <label for="rating4">4</label>                             ' ;
-			echo '  <input id="rating5" type="radio"  name="rating" value="5"> ' ;
+			echo '  <input id="rating5" type="radio" style="pointer-events: none; name="rating" value="5"> ' ;
 			echo '  <label for="rating5">5</label>                             ' ;
 			echo '	</form>		 ' ;
 												 
@@ -105,7 +106,7 @@
 			if (array_key_exists($movie->getId(),$movies_rate))
 			{
 				//set user ratings
-				echo '<script> rate('.$movies_rate[$movie->getId()].',\''. $movie->getId() .'\'); </script>';
+				echo '<script> rate('.round($movies_rate[$movie->getId()], 0, PHP_ROUND_HALF_UP).',\''. $movie->getId() .'\'); </script>';
 			}else
 			{
 				echo '<script> rate(0,\''. $movie->getId() .'\'); </script>';

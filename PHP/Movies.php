@@ -2,8 +2,8 @@
 <html>
 	<head>
 	 	<script type="text/javascript" src="http://localhost:81/WebAssignment_2/JS/MoviesScript.js"></script>
-	 <!-- 	 <link rel="stylesheet" type="text/css" href="http://localhost:81/WebAssignment_2/CSS/rating-widget.css">  -->
-	 	<link rel="stylesheet" type="text/css" href="http://localhost:81/WebAssignment_2/CSS/Movies.css"> 
+<!-- 	 	 <link rel="stylesheet" type="text/css" href="http://localhost:81/WebAssignment_2/CSS/rating-widget.css"> 
+ -->	 	<link rel="stylesheet" type="text/css" href="http://localhost:81/WebAssignment_2/CSS/Movies.css"> 
 
 	</head>
 	<body>
@@ -96,8 +96,7 @@
 			echo '<input type=\'text\' name="user"  value="'.$_SESSION['user'].'" hidden >';
 			echo '<input type=\'text\' name="movieId"  value="'.$movie->getId().'" hidden >';
 
-echo '  <input id="rating1" type="radio"  name="rating" value="0"> ' ;
-			echo '  <label for="rating1">0</label>     ';
+
 
 			echo '  <input id="rating1" type="radio"  name="rating" value="1"  onchange=\'this.form.submit()\'> ' ;
 			echo '  <label for="rating1">1</label>                            ' ;
