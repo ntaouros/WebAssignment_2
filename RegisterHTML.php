@@ -14,23 +14,32 @@
     <body>
         <h3 class="title"> Registration </h3>
 
-        <form>
+        <form action="http://localhost:81/WebAssignment_2/PHP/Register.php" method = "post">
             <div>
                 <label class="required">
                     <strong> Username  </strong>
                 </label>
-                <input type="text" placeholder="Enter Username" id="username" required>
-
+                <input type="text" name="username" placeholder="Enter Username" id="username" required>
+                <br><br>
                 <label class="required">
                     <strong> Password </strong>
                 </label>
-                <input type="password" placeholder="Enter Password" id="password" required>
+
+                <input type="password" name="password" placeholder="Enter Password" id="password" required>
             </div>  
-            
+            <?php   
+                    session_start();
+                    if(isset($_SESSION['regFailed']))       echo 'User already exists <br>'; 
+                    session_destroy();
+
+            ?>
+            <br>
+            <button type="submit" class="signupbtn"> Register </button>
+            <a href="http://localhost:81/WebAssignment_2/LoginHTML.php">Log In </a>
+
             
         </form>
 
-        <button type="submit" class="signupbtn"> Register </button>
 
     </body>
 </html>

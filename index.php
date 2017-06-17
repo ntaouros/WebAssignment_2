@@ -1,25 +1,17 @@
-
 <html>
-	<head>
+
+	<body>
+		<a href="http://localhost:81/WebAssignment_2/LoginHTML.php">Log In </a>
+		<a href="http://localhost:81/WebAssignment_2/RegisterHTML.php">Register</a>
 	 	<script type="text/javascript" src="http://localhost:81/WebAssignment_2/JS/MoviesScript.js"></script>
-	 <!-- 	 <link rel="stylesheet" type="text/css" href="http://localhost:81/WebAssignment_2/CSS/rating-widget.css">  -->
 	 	<link rel="stylesheet" type="text/css" href="http://localhost:81/WebAssignment_2/CSS/Movies.css"> 
 
-	</head>
-	<body>
-	
-	
-	
-	
-	
+
+
 	</body>
-
-
-</html>
-
 <?php
-	include 'DBconnect.php';
-	include 'Movie.php';
+	include 'PHP/DBconnect.php';
+	include 'PHP/Movie.php';
 	session_start();
 	$movies=array();
 	$sql = "SELECT * FROM Movie";
@@ -46,15 +38,16 @@
 			array_push($movies,$movie);
 		}
 		$genres_unique = array_unique($genres_unique);
+		$rate_SQL='select avg(Rate) as avRate, id from User_Rating, Movie where Movie_id=id group by Movie_id;';
+		//Fetching avg Ratings
 		
-		//Fetching USer Ratings
-		$user_sql = 'select Movie_id , Rate from User_Rating,Users where username=\''.$_SESSION['user'].'\' and Users.id=User_Rating.User_id;';
-		$rate_result = $mysqli->query($user_sql);
-		$movies_rate=array();
-		while($rate_row = $rate_result->fetch_assoc()) {
-			$movies_rate[$rate_row["Movie_id"]]=$rate_row["Rate"];
-		}
-		
+		 $rate_result = $mysqli->query($rate_SQL);
+		 $movies_rate=array();
+		 while($rate_row = $rate_result->fetch_assoc()) {
+		 	$movies_rate[$rate_row["id"]]=$rate_row["avRate"];
+
+		 }
+
 	
 		//Printing Unique Genres
 		echo '<select id=\'genre\' onchange=\'groupBy(this.value)\'>';
@@ -93,39 +86,33 @@
 			echo '	<form method="post" action="http://localhost:81/WebAssignment_2/PHP/Insert.php" onSubmit="return ajaxSubmit(this);"> ' ;
 			echo '<span class="starRating starRating'.$movie->getId().'">          	  ' ;
 			
-			echo '<input type=\'text\' name="user"  value="'.$_SESSION['user'].'" hidden >';
-			echo '<input type=\'text\' name="movieId"  value="'.$movie->getId().'" hidden >';
-
-echo '  <input id="rating1" type="radio"  name="rating" value="0"> ' ;
+			echo '  <input id="rating0" type="radio"  name="rating" value="0"> ' ;
 			echo '  <label for="rating1">0</label>     ';
 
-			echo '  <input id="rating1" type="radio"  name="rating" value="1"  onchange=\'this.form.submit()\'> ' ;
-			echo '  <label for="rating1">1</label>                            ' ;
-			echo '  <input id="rating2" type="radio"  name="rating" value="2"  onchange=\'this.form.submit()\'> ' ;
+			echo '  <input id="rating1" type="radio"  name="rating" value="1"> ' ;
+			echo '  <label for="rating1">1</label>                             ' ;
+			echo '  <input id="rating2" type="radio"  name="rating" value="2"> ' ;
 			echo '  <label for="rating2">2</label>                             ' ;
-			echo '  <input id="rating3" type="radio"  name="rating" value="3"  onchange=\'this.form.submit()\'> ' ;
+			echo '  <input id="rating3" type="radio"  name="rating" value="3"> ' ;
 			echo '  <label for="rating3">3</label>                             ' ;
-			echo '  <input id="rating4" type="radio"  name="rating" value="4"  onchange=\'this.form.submit()\'> ' ;
+			echo '  <input id="rating4" type="radio"  name="rating" value="4"> ' ;
 			echo '  <label for="rating4">4</label>                             ' ;
-			echo '  <input id="rating5" type="radio"  name="rating" value="5"  onchange=\'this.form.submit()\'> ' ;
+			echo '  <input id="rating5" type="radio"  name="rating" value="5"> ' ;
 			echo '  <label for="rating5">5</label>                             ' ;
-			echo '</span>													  ' ;
 			echo '	</form>		 ' ;
-			/*	"this.form.submit()"
-				onchange=\'addRate('.$movie->getId().',this.value)\'
- onchange=\'addRate('.$movie->getId().',this.value)\' 
-onchange=\'addRate('.$movie->getId().',this.value)\'
-onchange=\'addRate('.$movie->getId().',this.value)\'
-onchange=\'addRate('.$movie->getId().',this.value)\'
-
-
-			*/											 
-			//Check if user has rated this movie
+												 
+			//Check if avg rate existsss
 			if (array_key_exists($movie->getId(),$movies_rate))
 			{
 				//set user ratings
 				echo '<script> rate('.$movies_rate[$movie->getId()].',\''. $movie->getId() .'\'); </script>';
+			}else
+			{
+				echo '<script> rate(0,\''. $movie->getId() .'\'); </script>';
+
+
 			}
+			
 					
 			
 			echo '</div>';
@@ -137,5 +124,5 @@ onchange=\'addRate('.$movie->getId().',this.value)\'
 		
 	}
 
-
 ?>
+</html>

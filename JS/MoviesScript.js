@@ -18,8 +18,10 @@ function groupBy(genre) {
 } 
 
 function rate(rating, id) {
+	
 	var result = document.querySelector('.starRating' + id +  ' #rating' + rating);
 	result.checked = true;
+
 	// document.getElementById("rating" + rating).checked = true;
 };
 
