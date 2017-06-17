@@ -18,9 +18,9 @@ function groupBy(genre) {
 } 
 
 function rate(rating, id) {
-	
-	var result = document.querySelector('.starRating' + id +  ' #rating' + rating);
+	var result = document.querySelector('.starRating' + id +  ' #rating' + rating+id);
 	result.checked = true;
+	
 
 	// document.getElementById("rating" + rating).checked = true;
 };

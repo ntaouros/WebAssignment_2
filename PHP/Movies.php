@@ -2,8 +2,8 @@
 <html>
 	<head>
 	 	<script type="text/javascript" src="http://localhost:81/WebAssignment_2/JS/MoviesScript.js"></script>
-<!-- 	 	 <link rel="stylesheet" type="text/css" href="http://localhost:81/WebAssignment_2/CSS/rating-widget.css"> 
- -->	 	<link rel="stylesheet" type="text/css" href="http://localhost:81/WebAssignment_2/CSS/Movies.css"> 
+	 	 <link rel="stylesheet" type="text/css" href="http://localhost:81/WebAssignment_2/CSS/rating-widget.css"> 
+	 	<link rel="stylesheet" type="text/css" href="http://localhost:81/WebAssignment_2/CSS/Movies.css"> 
 
 	</head>
 	<body>
@@ -98,16 +98,16 @@
 
 
 
-			echo '  <input id="rating1" type="radio"  name="rating" value="1"  onchange=\'this.form.submit()\'> ' ;
-			echo '  <label for="rating1">1</label>                            ' ;
-			echo '  <input id="rating2" type="radio"  name="rating" value="2"  onchange=\'this.form.submit()\'> ' ;
-			echo '  <label for="rating2">2</label>                             ' ;
-			echo '  <input id="rating3" type="radio"  name="rating" value="3"  onchange=\'this.form.submit()\'> ' ;
-			echo '  <label for="rating3">3</label>                             ' ;
-			echo '  <input id="rating4" type="radio"  name="rating" value="4"  onchange=\'this.form.submit()\'> ' ;
-			echo '  <label for="rating4">4</label>                             ' ;
-			echo '  <input id="rating5" type="radio"  name="rating" value="5"  onchange=\'this.form.submit()\'> ' ;
-			echo '  <label for="rating5">5</label>                             ' ;
+			echo '  <input id="rating1'.$movie->getId().'" type="radio"  name="rating" value="1"  onchange=\'this.form.submit()\'> ' ;
+			echo '  <label for="rating1'.$movie->getId().'">1</label>                            ' ;
+			echo '  <input id="rating2'.$movie->getId().'" type="radio"  name="rating" value="2"  onchange=\'this.form.submit()\'> ' ;
+			echo '  <label for="rating2'.$movie->getId().'">2</label>                             ' ;
+			echo '  <input id="rating3'.$movie->getId().'" type="radio"  name="rating" value="3"  onchange=\'this.form.submit()\'> ' ;
+			echo '  <label for="rating3'.$movie->getId().'">3</label>                             ' ;
+			echo '  <input id="rating4'.$movie->getId().'" type="radio"  name="rating" value="4"  onchange=\'this.form.submit()\'> ' ;
+			echo '  <label for="rating4'.$movie->getId().'">4</label>                             ' ;
+			echo '  <input id="rating5'.$movie->getId().'" type="radio"  name="rating" value="5"  onchange=\'this.form.submit()\'> ' ;
+			echo '  <label for="rating5'.$movie->getId().'">5</label>                             ' ;
 			echo '</span>													  ' ;
 			echo '	</form>		 ' ;
 			/*	"this.form.submit()"
