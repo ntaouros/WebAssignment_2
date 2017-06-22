@@ -18,7 +18,7 @@
 
 
 	if ($mysqli->query($sql) === TRUE) {
-		    header('location: ' . $_SERVER['HTTP_REFERER']);
+		    header('location: ' . 'index.php');
 
 	} else {
 		echo "Error: " . $sql . "<br>" . $mysqli->error;

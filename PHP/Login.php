@@ -18,7 +18,6 @@
 		exit;
 	}else
 	{
-		echo 'logggggged';
 		header("Location: http://localhost:81/WebAssignment_2/PHP/Movies.php" );
 	}
 	

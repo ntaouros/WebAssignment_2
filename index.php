@@ -1,3 +1,13 @@
+<style>
+input { 
+     background: none;
+     border: none;
+     color: #0066ff;
+     text-decoration: underline;
+     cursor: pointer; 
+}
+</style>
+
 <html>
 
 	<body>
@@ -7,11 +17,12 @@
 	 	 <link rel="stylesheet" type="text/css" href="http://localhost:81/WebAssignment_2/CSS/rating-widget.css"> 
 	 	<link rel="stylesheet" type="text/css" href="http://localhost:81/WebAssignment_2/CSS/Movies.css"> 
 
-
+	
 
 
 	</body>
 <?php
+	 
 	include 'PHP/DBconnect.php';
 	include 'PHP/Movie.php';
 	session_start();
@@ -71,37 +82,37 @@
 			$genreInLower = strtolower($genreClass);
 			echo "<div class=\"$genreInLower\">"; 
 			
-			echo  $movie->getTitle() ."<br> ";
-			
 
-			echo  $movie->getReleaseYear() ."<br> ";
+			echo "<form action=\"http://localhost:81/WebAssignment_2/PHP/MovieDetails.php\" id='frm' method=\"post\">";
 			
-			echo "<img src=\"".$movie->getImage()."\"  >";
-			echo "<br>";
+			echo '<input type="submit" value="'.$movie->getTitle().'" name="moviee">';
 
-			echo  $movie->getDescription() ."<br> ";
+			echo '</form>';
+			echo "<img src=\"".$movie->getImage()."\" height=200 >";
 			echo "<br>";
-			echo $genreClass;
 			echo "<br>";
 			//2nisis skepsi: an uparxei vazeis tin timi tou xristi alliws sketo to rating widget
 			//Nik skepsi: dld theloume panta to rating widget + to rating tou xristi AN uparxei
 			if (array_key_exists($movie->getId(),$movies_rate)){
-				echo 'Rating '. round($movies_rate[$movie->getId()], 2, PHP_ROUND_HALF_UP) .'<br>'; 
+				echo 'Rating '. round($movies_rate[$movie->getId()], 2, PHP_ROUND_HALF_UP) .'/5<br>'; 
+			}else
+			{
+				echo 'Rating 0/5';
 			}
 			echo '	<form method="post" > ' ;
 			echo '<span class="starRating starRating'.$movie->getId().'">          	  ' ;
 
 
-			echo '  <input id="rating1'.$movie->getId().'" type="radio" disabled name="rating" value="1" > ' ;
-			echo '  <label for="rating1'.$movie->getId().'">1</label>                            ' ;
+			echo '  <input id="rating5'.$movie->getId().'" type="radio" disabled name="rating" value="5" > ' ;
+			echo '  <label for="rating5'.$movie->getId().'">5</label>                             ' ;
+			echo '  <input id="rating4'.$movie->getId().'" type="radio" disabled name="rating" value="4"  > ' ;
+			echo '  <label for="rating4'.$movie->getId().'">4</label>                             ' ;
+			echo '  <input id="rating3'.$movie->getId().'" type="radio" disabled name="rating" value="3"  > ' ;
+			echo '  <label for="rating3'.$movie->getId().'">3</label>                             ' ;
 			echo '  <input id="rating2'.$movie->getId().'" type="radio" disabled name="rating" value="2"  > ' ;
 			echo '  <label for="rating2'.$movie->getId().'">2</label>                             ' ;
-			echo '  <input id="rating3'.$movie->getId().'" type="radio" disabled name="rating" value="3" > ' ;
-			echo '  <label for="rating3'.$movie->getId().'">3</label>                             ' ;
-			echo '  <input id="rating4'.$movie->getId().'" type="radio"disabled name="rating" value="4" > ' ;
-			echo '  <label for="rating4'.$movie->getId().'">4</label>                             ' ;
-			echo '  <input id="rating5'.$movie->getId().'" type="radio" disabled name="rating" value="5"  > ' ;
-			echo '  <label for="rating5'.$movie->getId().'">5</label>                             ' ;
+			echo '  <input id="rating1'.$movie->getId().'" type="radio" disabled name="rating" value="1"  > ' ;
+			echo '  <label for="rating1'.$movie->getId().'">1</label>                            ' ;
 			echo '	</form>		 ' ;
 												 
 			//Check if avg rate existsss
