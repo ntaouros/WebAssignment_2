@@ -72,6 +72,11 @@ input {
 		echo '</select>';
 		echo "<br>";
 
+		echo '<button onclick=\'ascRate();\'> Sort by rating(asc)';
+		echo '</button>';
+		echo '<button onclick=\'descRate();\'> Sort by rating(desc)';
+		echo '</button>';
+
 		//Printing Movies
 		foreach($movies as $movie) {
 			$genreClass = '';
@@ -80,7 +85,12 @@ input {
 				// echo $genre."<br>";
 			}
 			$genreInLower = strtolower($genreClass);
-			echo "<div class=\"$genreInLower\">"; 
+			if (!array_key_exists($movie->getId(),$movies_rate)) {
+				$temppp =0;
+			} else {
+				$temppp = $movies_rate[$movie->getId()];
+			}
+			echo '<div value="'.$temppp.'" class="'.$genreInLower .'movie">'; 
 			
 
 			echo "<form action=\"http://localhost:81/WebAssignment_2/PHP/MovieDetails.php\" id='frm' method=\"post\">";
@@ -122,7 +132,7 @@ input {
 				echo '<script> rate('.round($movies_rate[$movie->getId()], 0, PHP_ROUND_HALF_UP).',\''. $movie->getId() .'\'); </script>';
 			}else
 			{
-				echo '<script> rate(0,\''. $movie->getId() .'\'); </script>';
+				// echo '<script> rate(0,\''. $movie->getId() .'\'); </script>';
 
 
 			}

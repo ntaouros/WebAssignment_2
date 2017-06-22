@@ -1,5 +1,12 @@
 var ratedMovies=[];
 
+function ascRate() {
+	var movies= document.getElementsByClassName('movie');
+	for (var i = 0; i < movies.length; i++) {
+	 	console.log(movies[i].getAttribute('value'));
+	 } 
+}
+
 function groupBy(genre) {
 
 	var reset = document.querySelectorAll('div');
