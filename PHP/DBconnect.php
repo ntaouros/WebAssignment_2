@@ -1,7 +1,7 @@
 <?php
 	mysqli_report(MYSQLI_REPORT_STRICT);
 	try {
-		$mysqli = new mysqli('localhost:3306', 'root', '0000', 'Movies') ;
+		$mysqli = new mysqli('localhost:3306', 'dionizi', 'kodik', 'Movies') ;
 	} catch (Exception $e ) {
 		echo '<div style = "font-size: 25px;">';
 		echo "Service unavailable</br>";

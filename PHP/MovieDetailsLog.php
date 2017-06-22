@@ -114,7 +114,7 @@ onchange=\'addRate('.$movie->getId().',this.value)\'
 				echo '<script> rate('.round($movies_rate[$movie->getId()], 0, PHP_ROUND_HALF_UP).',\''. $movie->getId() .'\'); </script>';
 			}else
 			{
-				echo '<script> rate(0,\''. $movie->getId() .'\'); </script>';
+				//echo '<script> rate(0,\''. $movie->getId() .'\'); </script>';
 
 
 			}

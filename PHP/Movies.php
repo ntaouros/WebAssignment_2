@@ -68,12 +68,18 @@ input {
 
 		//Printing Unique Genres
 		echo '<select id=\'genre\' onchange=\'groupBy(this.value)\'>';
+
 		echo '<option selected value>Select Genre</option>';
+
 		foreach($genres_unique as $genre) {
 			echo "<option value='$genre'>$genre</option>";
 		
 		}
 		echo '</select>';
+		echo '<button onclick=\'ascRate();\'> Sort by rating(asc)';
+		echo '</button>';
+		echo '<button onclick=\'descRate();\'> Sort by rating(desc)';
+		echo '</button>';
 		echo "<br>";
 			echo 'Hello '.$_SESSION['user'];
 
@@ -85,9 +91,14 @@ input {
 				// echo $genre."<br>";
 			}
 			$genreInLower = strtolower($genreClass);
-			echo "<div class=\"$genreInLower\">"; 
+			if (!array_key_exists($movie->getId(),$movies_rate)) {
+				$temppp =0;
+			} else {
+				$temppp = $movies_rate[$movie->getId()];
+			}
+			echo '<div value="'.$temppp.'" class="'.$genreInLower .'movie">'; 
 			
-			echo "<form action=\"http://localhost:81/WebAssignment_2/PHP/MovieDetailsLog.php\" id='frm' method=\"post\">";
+			echo "<form action=\"MovieDetailsLog.php\" id='frm' method=\"post\">";
 			
 			echo '<input type="submit" value="'.$movie->getTitle().'" name="moviee">';
 
@@ -103,7 +114,7 @@ input {
 			}
 			//2nisis skepsi: an uparxei vazeis tin timi tou xristi alliws sketo to rating widget
 			//Nik skepsi: dld theloume panta to rating widget + to rating tou xristi AN uparxei
-			echo '	<form method="post" action="http://localhost:81/WebAssignment_2/PHP/Insert.php" onSubmit="return ajaxSubmit(this);"> ' ;
+			echo '	<form method="post" action="Insert.php" onSubmit="return ajaxSubmit(this);"> ' ;
 			echo '<span class="starRating starRating'.$movie->getId().'">          	  ' ;
 			
 			echo '<input type=\'text\' name="user"  value="'.$_SESSION['user'].'" hidden >';

@@ -3,7 +3,7 @@
 	<body>
 
 
-<form id = "loginform" action = "http://localhost:81/WebAssignment_2/PHP/Login.php" method = "post">
+<form id = "loginform" action = "PHP/Login.php" method = "post">
 			<div>
 				<div class = "row">
 					

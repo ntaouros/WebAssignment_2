@@ -14,7 +14,7 @@
     <body>
         <h3 class="title"> Registration </h3>
 
-        <form action="http://localhost:81/WebAssignment_2/PHP/Register.php" method = "post">
+        <form action="PHP/Register.php" method = "post">
             <div>
                 <label class="required">
                     <strong> Username  </strong>
@@ -35,7 +35,7 @@
             ?>
             <br>
             <button type="submit" class="signupbtn"> Register </button>
-            <a href="http://localhost:81/WebAssignment_2/LoginHTML.php">Log In </a>
+            <a href="LoginHTML.php">Log In </a>
 
             
         </form>

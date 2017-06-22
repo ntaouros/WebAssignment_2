@@ -21,7 +21,7 @@
 		if ($mysqli->query($sql) === TRUE) {
 		header("Location: ". $_SERVER['HTTP_REFERER']);
 
-		header("Location: http://localhost:81/WebAssignment_2/" );
+		header("Location: ../index.php" );
 			
 		} else {
 			echo "Error: " . $sql . "<br>" . $mysqli->error;

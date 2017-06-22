@@ -2,9 +2,42 @@ var ratedMovies=[];
 
 function ascRate() {
 	var movies= document.getElementsByClassName('movie');
+	
+	var arr = Array.prototype.slice.call( movies );  //convert htmlcollection to array
+	 var sortedMovies = arr.sort(function(a, b) {
+	     return parseFloat(a.getAttribute('value')) - parseFloat(b.getAttribute('value'));
+	 });
+
+	container = arr[0].parentNode;
 	for (var i = 0; i < movies.length; i++) {
-	 	console.log(movies[i].getAttribute('value'));
+		container.removeChild(movies[i]);
+	}
+
+	for (var k in arr){
+		container.appendChild(arr[k]);
+	 
 	 } 
+
+}
+
+function descRate() {
+	var movies= document.getElementsByClassName('movie');
+	
+	var arr = Array.prototype.slice.call( movies );  //convert htmlcollection to array
+	 var sortedMovies = arr.sort(function(b, a) {
+	     return parseFloat(a.getAttribute('value')) - parseFloat(b.getAttribute('value'));
+	 });
+
+	container = arr[0].parentNode;
+	for (var i = 0; i < movies.length; i++) {
+		container.removeChild(movies[i]);
+	}
+
+	for (var k in arr){
+		container.appendChild(arr[k]);
+	 
+	 } 
+
 }
 
 function groupBy(genre) {

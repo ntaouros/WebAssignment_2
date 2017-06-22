@@ -2,9 +2,9 @@
 
 	<body>
 		
-	 	<script type="text/javascript" src="http://localhost:81/WebAssignment_2/JS/MoviesScript.js"></script>
-	 	 <link rel="stylesheet" type="text/css" href="http://localhost:81/WebAssignment_2/CSS/rating-widget.css"> 
-	 	 <a href="http://localhost:81/WebAssignment_2/index.php">Home</a>
+	 	<script type="text/javascript" src="../JS/MoviesScript.js"></script>
+	 	 <link rel="stylesheet" type="text/css" href="../CSS/rating-widget.css"> 
+	 	 <a href="../index.php">Home</a>
 	
 
 
@@ -73,15 +73,15 @@
 	echo '<span class="starRating starRating'.$movie->getId().'">          	  ' ;
 
 
-	echo '  <input id="rating5'.$movie->getId().'" type="radio"  name="rating" value="5" > ' ;
+	echo '  <input id="rating5'.$movie->getId().'" type="radio" disabled  name="rating" value="5" > ' ;
 	echo '  <label for="rating5'.$movie->getId().'">5</label>                             ' ;
-	echo '  <input id="rating4'.$movie->getId().'" type="radio"  name="rating" value="4"  > ' ;
+	echo '  <input id="rating4'.$movie->getId().'" type="radio" disabled name="rating" value="4"  > ' ;
 	echo '  <label for="rating4'.$movie->getId().'">4</label>                             ' ;
-	echo '  <input id="rating3'.$movie->getId().'" type="radio"  name="rating" value="3"  > ' ;
+	echo '  <input id="rating3'.$movie->getId().'" type="radio" disabled name="rating" value="3"  > ' ;
 	echo '  <label for="rating3'.$movie->getId().'">3</label>                             ' ;
-	echo '  <input id="rating2'.$movie->getId().'" type="radio"  name="rating" value="2"  > ' ;
+	echo '  <input id="rating2'.$movie->getId().'" type="radio" disabled name="rating" value="2"  > ' ;
 	echo '  <label for="rating2'.$movie->getId().'">2</label>                             ' ;
-	echo '  <input id="rating1'.$movie->getId().'" type="radio"  name="rating" value="1"  > ' ;
+	echo '  <input id="rating1'.$movie->getId().'" type="radio" disabled name="rating" value="1"  > ' ;
 	echo '  <label for="rating1'.$movie->getId().'">1</label>                            ' ;
 	echo '	</form>		 ' ;
 	/*	"this.form.submit()"
@@ -100,7 +100,7 @@ onchange=\'addRate('.$movie->getId().',this.value)\'
 				echo '<script> rate('.round($movies_rate[$movie->getId()], 0, PHP_ROUND_HALF_UP).',\''. $movie->getId() .'\'); </script>';
 			}else
 			{
-				echo '<script> rate(0,\''. $movie->getId() .'\'); </script>';
+				//echo '<script> rate(0,\''. $movie->getId() .'\'); </script>';
 
 
 			}

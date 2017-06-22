@@ -70,12 +70,12 @@ input {
 		
 		}
 		echo '</select>';
-		echo "<br>";
 
 		echo '<button onclick=\'ascRate();\'> Sort by rating(asc)';
 		echo '</button>';
 		echo '<button onclick=\'descRate();\'> Sort by rating(desc)';
 		echo '</button>';
+		echo "<br>";
 
 		//Printing Movies
 		foreach($movies as $movie) {
@@ -93,7 +93,7 @@ input {
 			echo '<div value="'.$temppp.'" class="'.$genreInLower .'movie">'; 
 			
 
-			echo "<form action=\"http://localhost:81/WebAssignment_2/PHP/MovieDetails.php\" id='frm' method=\"post\">";
+			echo "<form action=\"PHP/MovieDetails.php\" id='frm' method=\"post\">";
 			
 			echo '<input type="submit" value="'.$movie->getTitle().'" name="moviee">';
 
