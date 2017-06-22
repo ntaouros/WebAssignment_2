@@ -14,7 +14,18 @@
 	session_start();
 	include 'DBconnect.php';
 	include 'Movie.php';
-	$sql = "SELECT * FROM Movie where title='".$_POST['moviee']."'";
+		
+	if (isset($_SESSION['moviee'])) {
+    	$tempTitle=$_SESSION['moviee'];
+		$sql = "SELECT * FROM Movie where id='".$tempTitle."'";
+
+	}	else
+	{
+		$sql = "SELECT * FROM Movie where title='".$_POST['moviee']."'";
+	}
+
+
+	//$sql = "SELECT * FROM Movie where title='".$_POST['moviee']."'";
 	$result = $mysqli->query($sql);
 	$row = $result->fetch_assoc();
 	$movieID=$row["id"];

@@ -16,9 +16,12 @@
 	$movieIdd=post('movieId');
 	$sql = "INSERT INTO User_Rating (User_id, Movie_id, Rate) VALUES (" .(int)$userIdd .", '".(int)$movieIdd."', '".(int)post('rating')."') ON DUPLICATE KEY UPDATE  Rate='".(int)post('rating')."';";
 
+	$_SESSION['moviee'] = $_POST['movieId'];
 
 	if ($mysqli->query($sql) === TRUE) {
-		    header('location: ' . 'index.php');
+		
+
+	    header('location: ' . $_SERVER['HTTP_REFERER']);
 
 	} else {
 		echo "Error: " . $sql . "<br>" . $mysqli->error;
