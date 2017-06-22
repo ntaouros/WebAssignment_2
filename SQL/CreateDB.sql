@@ -1,5 +1,8 @@
+CREATE USER if not exists'dionizi'@'localhost' IDENTIFIED BY 'kodik';
 CREATE SCHEMA IF NOT EXISTS `Movies` DEFAULT CHARACTER SET utf8 ;
 USE `Movies`;
+GRANT ALL PRIVILEGES ON Movies.* TO 'dionizi'@'localhost';
+
 DROP TABLE IF EXISTS `User_Rating`;
 
 DROP TABLE IF EXISTS `Users`;
