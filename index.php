@@ -11,11 +11,11 @@ input {
 <html>
 
 	<body>
-		<a href="http://localhost:81/WebAssignment_2/LoginHTML.php">Log In </a>
-		<a href="http://localhost:81/WebAssignment_2/RegisterHTML.php">Register</a>
-	 	<script type="text/javascript" src="http://localhost:81/WebAssignment_2/JS/MoviesScript.js"></script>
-	 	 <link rel="stylesheet" type="text/css" href="http://localhost:81/WebAssignment_2/CSS/rating-widget.css"> 
-	 	<link rel="stylesheet" type="text/css" href="http://localhost:81/WebAssignment_2/CSS/Movies.css"> 
+		<a href="LoginHTML.php">Log In </a>
+		<a href="RegisterHTML.php">Register</a>
+	 	<script type="text/javascript" src="JS/MoviesScript.js"></script>
+	 	 <link rel="stylesheet" type="text/css" href="CSS/rating-widget.css"> 
+	 	<link rel="stylesheet" type="text/css" href="CSS/Movies.css"> 
 
 	
 

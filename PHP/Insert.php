@@ -1,5 +1,7 @@
 <?php
 	include 'DBconnect.php';
+	session_start();
+
 	function post($key) {
 	    if (isset($_POST[$key]))
 	        return $_POST[$key];

@@ -14,7 +14,7 @@
   display         : block;
   float           : right;
   position        : relative;
-  background      : url('http://localhost:81/WebAssignment_2/Img/star-off.svg');
+  background      : url('../Img/star-off.svg');
   background-size : contain;
 }
 
@@ -23,7 +23,7 @@
   display         : block;
   width           : 1.5em;
   height          : 1.5em;
-  background      : url('http://localhost:81/WebAssignment_2/Img/star-on.svg');
+  background      : url('../Img/star-on.svg');
   background-size : contain;
   opacity         : 0;
   transition      : opacity 0.2s linear;

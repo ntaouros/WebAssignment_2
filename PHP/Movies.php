@@ -1,10 +1,18 @@
-
+<style>
+input { 
+     background: none;
+     border: none;
+     color: #0066ff;
+     text-decoration: underline;
+     cursor: pointer; 
+}
+</style>
 <html>
 	<head>
-	 	<script type="text/javascript" src="http://localhost:81/WebAssignment_2/JS/MoviesScript.js"></script>
-	 	 <link rel="stylesheet" type="text/css" href="http://localhost:81/WebAssignment_2/CSS/rating-widget.css"> 
-	 	<link rel="stylesheet" type="text/css" href="http://localhost:81/WebAssignment_2/CSS/Movies.css"> 
-			<a href="http://localhost:81/WebAssignment_2/PHP/logOut.php">Log out</a>
+	 	<script type="text/javascript" src="../JS/MoviesScript.js"></script>
+ 	 	<link rel="stylesheet" type="text/css" href="../CSS/rating-widget.css"> 
+	 	<link rel="stylesheet" type="text/css" href="../CSS/Movies.css"> 
+		<a href="logOut.php">Log out</a>
 
 	</head>
 	<body>
@@ -22,6 +30,7 @@
 	include 'DBconnect.php';
 	include 'Movie.php';
 	session_start();
+
 	$movies=array();
 	$sql = "SELECT * FROM Movie order by title";
 	$result = $mysqli->query($sql);
@@ -56,7 +65,7 @@
 			$movies_rate[$rate_row["Movie_id"]]=$rate_row["Rate"];
 		}
 		
-	
+
 		//Printing Unique Genres
 		echo '<select id=\'genre\' onchange=\'groupBy(this.value)\'>';
 		echo '<option selected value>Select Genre</option>';
@@ -66,6 +75,7 @@
 		}
 		echo '</select>';
 		echo "<br>";
+			echo 'Hello '.$_SESSION['user'];
 
 		//Printing Movies
 		foreach($movies as $movie) {

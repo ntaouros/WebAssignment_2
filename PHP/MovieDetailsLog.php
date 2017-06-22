@@ -2,9 +2,9 @@
 
 	<body>
 		
-	 	<script type="text/javascript" src="http://localhost:81/WebAssignment_2/JS/MoviesScript.js"></script>
-	 	 <link rel="stylesheet" type="text/css" href="http://localhost:81/WebAssignment_2/CSS/rating-widget.css"> 
-	 	 <a href="http://localhost:81/WebAssignment_2/index.php">Home</a>
+	 	<script type="text/javascript" src="../JS/MoviesScript.js"></script>
+	 	 <link rel="stylesheet" type="text/css" href="../CSS/rating-widget.css"> 
+	 	 <a href="Movies.php">Home</a>
 	
 
 
@@ -14,11 +14,10 @@
 	session_start();
 	include 'DBconnect.php';
 	include 'Movie.php';
-		
-	if (isset($_SESSION['moviee'])) {
+	if (isset($_SESSION['moviee'])&&!isset($_POST['moviee'])) {
     	$tempTitle=$_SESSION['moviee'];
 		$sql = "SELECT * FROM Movie where id='".$tempTitle."'";
-
+		unset($_SESSION['moviee']);
 	}	else
 	{
 		$sql = "SELECT * FROM Movie where title='".$_POST['moviee']."'";
@@ -79,7 +78,7 @@
 			}
 			//2nisis skepsi: an uparxei vazeis tin timi tou xristi alliws sketo to rating widget
 			//Nik skepsi: dld theloume panta to rating widget + to rating tou xristi AN uparxei
-			echo '	<form method="post" action="http://localhost:81/WebAssignment_2/PHP/Insert.php" onSubmit="return ajaxSubmit(this);"> ' ;
+			echo '	<form method="post" action="Insert.php" onSubmit="return ajaxSubmit(this);"> ' ;
 			echo '<span class="starRating starRating'.$movie->getId().'">          	  ' ;
 			
 			echo '<input type=\'text\' name="user"  value="'.$_SESSION['user'].'" hidden >';

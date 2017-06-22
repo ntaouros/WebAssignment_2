@@ -18,7 +18,7 @@
 		exit;
 	}else
 	{
-		header("Location: http://localhost:81/WebAssignment_2/PHP/Movies.php" );
+		header("Location: Movies.php" );
 	}
 	
 	
